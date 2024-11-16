@@ -157,6 +157,8 @@ T2-FLAIR image with hyperintense MS lesion contrast enhanced by the LS Contrast 
 
 ### AFT Segmenter
 
+![aft-logo](assets/AFTSegmenter.png)
+
 This module offers an implementation of a recent Multiple Sclerosis lesion segmentation approach based on a unsupervised method described by Cabezas et al. [^1]. This module is intended to be used with FLAIR and T1 MRI volumes, which the MS lesions can be detected.
 
 #### Painel and Parameters
