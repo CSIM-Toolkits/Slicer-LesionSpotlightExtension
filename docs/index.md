@@ -164,27 +164,45 @@ This module offers an implementation of a recent Multiple Sclerosis lesion segme
 **IO:**
 
 - T1 Volume
-- Input T1 volume
+  
+  - Input T1 volume
+
 - T2-FLAIR Volume
-- Input T2-FLAIR volume
+  
+  - Input T2-FLAIR volume
+
 - Lesion Label
-- Output a global lesion mask
+  
+  - Output a global lesion mask
+
 - Is brain extracted?
-- Is the input data (T1 and T2-FLAIR) already brain extracted?
+  
+  - Is the input data (T1 and T2-FLAIR) already brain extracted?
 
 **Segmentation Parameters:**
 
 - Absolute Error Threshold
+
   - Define the absolute error threshold for gray matter statistics. This measure evaluated the similarity between the MNI152 template and the T2-FLAIR gray matter fluctuation estimative. A higher error gives a higher variability in the final lesion segmentation
+
 - Gamma
+
   - Define the outlier detection based on units of standard deviation in the T2-FLAIR gray matter voxel intensity distribution
+
 - White Matter Matching
+
   - Set the local neighborhood searching for label refinement step. This metric defines the percentage of white matter tissue that surrounds the hyperintense lesions. Large values defines a conservative segmentation, i.e. in order to define a true MS lesion, it must be close to certain percentage of white matter area.
+
 - Minimum Lesion Size
+
   - Set the minimum lesion size adopted as a true lesion in the final lesion map. Units are given in number of voxels
+
 - Gray Matter Mask Value
+
   - Set the mask value that represents the gray matter. Default is defined based on the (Basic Brain Tissues module) output
+
 - White Matter Mask Value
+
   - Set the mask value that represents the white matter. Default is defined based on the (Basic Brain Tissues module) output
 
 ![Input T2-FLAIR image with Multiple Sclerosis lesions](assets/T2FLAIR_patient_AFT.png){ width="600" .center}
