@@ -28,10 +28,12 @@ This extension provides image segmentation and local image contrast enhancement 
 Most frequently used for these scenarios:
 
 - **Use Case 1:** Hyperintense Multiple Sclerosis (MS) lesions segmentation
-  - T2-FLAIR images are usually applied to MS diagnosis in order to detect hyperintense MS lesions. In this case, the `LS Segmenter` module can be useful.
+
+    - T2-FLAIR images are usually applied to MS diagnosis in order to detect hyperintense MS lesions. In this case, the `LS Segmenter` module can be useful.
 
 - **Use Case 2:** Increase contrast in abnormal voxels in white matter tissue
-  - There are some lesion segmentation approaches that rely on the voxel intensity level presented in the white matter tissue, where the `LS Contrast Enhancer` module can be helpful to increase the contrast between lesions and surrounding brain tissues (mainly normal-appearing white matter - NAWM).
+
+    - There are some lesion segmentation approaches that rely on the voxel intensity level presented in the white matter tissue, where the `LS Contrast Enhancer` module can be helpful to increase the contrast between lesions and surrounding brain tissues (mainly normal-appearing white matter - NAWM).
 
 
 ![MS lesions and White Matter 3D representation](assets/Lesion3DRender.png)
@@ -53,46 +55,74 @@ This module offers a hybrid algorithm based on the iterative contrast enhancemen
 - T1 Volume
 - T2-FLAIR Volume
 - Lesion Label
-  - Output a global lesion mask
+
+    - Output a global lesion mask
+
 - Is brain extracted?
-  - Is the input data (T1 and T2-FLAIR) already brain extracted?
+
+    - Is the input data (T1 and T2-FLAIR) already brain extracted?
+
 - Apply noise attenuation step
-  - Apply noise attenuation based on the [Anisotropic Anomalous Diffusion]() algorithm on the input data (T1 and T2-FLAIR)
+
+    - Apply noise attenuation based on the [Anisotropic Anomalous Diffusion](https://anomalousfiltersextension.readthedocs.io/en/latest/) algorithm on the input data (T1 and T2-FLAIR)
+
 - Apply bias field correction step
-  - Apply bias field correction based on the N4ITK Bias Field Correction algorithm on the input data (T1 and T2-FLAIR)
+
+    - Apply bias field correction based on the N4ITK Bias Field Correction algorithm on the input data (T1 and T2-FLAIR)
 
 **Noise Attenuation Parameters:**
 
 - Conductance
-  - The conductance regulates the diffusion intensity in the neighbourhood area. Choose a higher conductance if the input image has strong noise seem in the whole image space.
+
+    - The conductance regulates the diffusion intensity in the neighbourhood area. Choose a higher conductance if the input image has strong noise seem in the whole image space.
+
 - Number Of Iterations
-  - The number of iterations regulates the numerical simulation of the anomalous process over the image. This parameters is also related with the de-noising intensity, however it is more sensible to the noise intensity. Choose the higher number of iterations if the image presents high intensity noise which is not well treated by the conductance parameter
+
+    - The number of iterations regulates the numerical simulation of the anomalous process over the image. This parameters is also related with the de-noising intensity, however it is more sensible to the noise intensity. Choose the higher number of iterations if the image presents high intensity noise which is not well treated by the conductance parameter
+
 - Q Value
-  - The anomalous parameter (or q value) is the generalization parameters responsible to give the anomalous process approach on the diffusion equation. See the reference paper[1] to choose the appropriate q value (at moment, only tested in MRI T1 and T2 weighted images)
+    
+    - The anomalous parameter (or q value) is the generalization parameters responsible to give the anomalous process approach on the diffusion equation. See the reference paper[1] to choose the appropriate q value (at moment, only tested in MRI T1 and T2 weighted images)
 
 **Registration Parameters: (based on BRAINSFit module)**
 
 - Percentage Of Samples
-  - Percentage of voxel used in registration
+
+    - Percentage of voxel used in registration
+
 - Initiation Method
-  - Initialization method used for the MNI152 registration
+
+    - Initialization method used for the MNI152 registration
+
 - Interpolation
-  - Choose the interpolation method used to register the standard space to input image space. Options: Linear, NearestNeighbor, B-Spline
+
+    - Choose the interpolation method used to register the standard space to input image space. Options: Linear, NearestNeighbor, B-Spline
 
 **Segmentation Parameters:**
 
 - Absolute Error Threshold
-  - Define the absolute error threshold for gray matter statistics. This measure evaluated the similarity between the MNI152 template and the T2-FLAIR gray matter fluctuation estimative. A higher error gives a higher variability in the final lesion segmentation
+
+    - Define the absolute error threshold for gray matter statistics. This measure evaluated the similarity between the MNI152 template and the T2-FLAIR gray matter fluctuation estimative. A higher error gives a higher variability in the final lesion segmentation
+
 - Gamma
-  - Define the outlier detection based on units of standard deviation in the T2-FLAIR gray matter voxel intensity distribution
+
+    - Define the outlier detection based on units of standard deviation in the T2-FLAIR gray matter voxel intensity distribution
+
 - White Matter Matching
-  - Set the local neighborhood searching for label refinement step. This metric defines the percentage of white matter tissue that surrounds the hyperintense lesions. Higher values defines a conservative segmentation
+
+    - Set the local neighborhood searching for label refinement step. This metric defines the percentage of white matter tissue that surrounds the hyperintense lesions. Higher values defines a conservative segmentation
+
 - Minimum Lesion Size
-  - Set the minimum lesion size adopted as a true lesion in the final lesion map. Units are given in number of voxels
+  
+    - Set the minimum lesion size adopted as a true lesion in the final lesion map. Units are given in number of voxels
+
 - Gray Matter Mask Value
-  - Set the mask value that represents the gray matter. Default is defined based on the (Basic Brain Tissues module) output
+
+    - Set the mask value that represents the gray matter. Default is defined based on the (Basic Brain Tissues module) output
+
 - White Matter Mask Value
-  - Set the mask value that represents the white matter. Default is defined based on the (Basic Brain Tissues module) output
+
+    - Set the mask value that represents the white matter. Default is defined based on the (Basic Brain Tissues module) output
 
 ![T2-FLAIR image from a MS patient](assets/T2FLAIR_patient.png){ width="600" .center}
 
@@ -112,40 +142,62 @@ T2-FLAIR hyperintense lesion segmentation provided by the `LS Segmenter` module
 
 - Input Volume
 - Output Volume
-  - Output enhanced volume
+
+    - Output enhanced volume
 
 **Noise Attenuation Parameters:**
 
 - Conductance
-  - The conductance regulates the diffusion intensity in the neighbourhood area. Choose a higher conductance if the input image has strong noise seem in the whole image space.
+
+    - The conductance regulates the diffusion intensity in the neighbourhood area. Choose a higher conductance if the input image has strong noise seem in the whole image space.
+
 - Number Of Iterations
-  - The number of iterations regulates the numerical simulation of the - anomalous process over the image. This parameters is also related with the de-noising intensity, however it is more sensible to the noise intensity. Choose the higher number of iterations if the image presents high intensity noise which is not well treated by the conductance parameter
+
+    - The number of iterations regulates the numerical simulation of the - anomalous process over the image. This parameters is also related with the de-noising intensity, however it is more sensible to the noise intensity. Choose the higher number of iterations if the image presents high intensity noise which is not well treated by the conductance parameter
+
 - Q Value
-  - The anomalous parameter (or q value) is the generalization parameters responsible to give the anomalous process approach on the diffusion equation. See the reference paper[1] to choose the appropriate q value (at moment, only tested in MRI T1 and T2 weighted images)
+
+    - The anomalous parameter (or q value) is the generalization parameters responsible to give the anomalous process approach on the diffusion equation. See the reference paper[1] to choose the appropriate q value (at moment, only tested in MRI T1 and T2 weighted images)
 
 **Registration Parameters: (based on BRAINSFit module)**
 
 - Is brain extracted
-  - Is the input data (T1 and T2-FLAIR) already brain extracted?
+
+    - Is the input data (T1 and T2-FLAIR) already brain extracted?
+
 - Percentage Of Samples
-  - Percentage of voxel used in registration
+
+    - Percentage of voxel used in registration
+
 - Initiation Method
-  - Initialization method used for the MNI152 registration
+
+    - Initialization method used for the MNI152 registration
+
 - Interpolation
-  - Choose the interpolation method used to register the standard space to input image space. Options: Linear, NearestNeighbor, B-Spline
+
+    - Choose the interpolation method used to register the standard space to input image space. Options: Linear, NearestNeighbor, B-Spline
 
 **Lesion Enhancement Function Parameters:**
 
 - Weighting Enhancement
-  - Weighting enhancement value, in percentage, that will be used to increase the lesion signal in the image
+
+    - Weighting enhancement value, in percentage, that will be used to increase the lesion signal in the image
+
 - Threshold Method
-  - Choose the threhsold method for the lesion enhancement procedure. Options: MaximumEntropy, Otsu, Moments, Intermodes and IsoData
+
+    - Choose the threhsold method for the lesion enhancement procedure. Options: MaximumEntropy, Otsu, Moments, Intermodes and IsoData
+
 - Number Of Bins
-  - Number Of Bins for the histogram calculation
+
+    - Number Of Bins for the histogram calculation
+
 - Flip Object
-  - Flip object in the image. This inform if the dark part of the histogram that should be enhanced
+
+    - Flip object in the image. This inform if the dark part of the histogram that should be enhanced
+
 - Label Map Threshold
-  - Threshold for the lesion label map
+
+    - Threshold for the lesion label map
 
 ![T2-FLAIR image with original lesion contrast](assets/T2FLAIR_beforeContrast.png){ width="600" .center}
 
@@ -167,45 +219,45 @@ This module offers an implementation of a recent Multiple Sclerosis lesion segme
 
 - T1 Volume
   
-  - Input T1 volume
+    - Input T1 volume
 
 - T2-FLAIR Volume
   
-  - Input T2-FLAIR volume
+    - Input T2-FLAIR volume
 
 - Lesion Label
   
-  - Output a global lesion mask
+    - Output a global lesion mask
 
 - Is brain extracted?
   
-  - Is the input data (T1 and T2-FLAIR) already brain extracted?
+    - Is the input data (T1 and T2-FLAIR) already brain extracted?
 
 **Segmentation Parameters:**
 
 - Absolute Error Threshold
 
-  - Define the absolute error threshold for gray matter statistics. This measure evaluated the similarity between the MNI152 template and the T2-FLAIR gray matter fluctuation estimative. A higher error gives a higher variability in the final lesion segmentation
+    - Define the absolute error threshold for gray matter statistics. This measure evaluated the similarity between the MNI152 template and the T2-FLAIR gray matter fluctuation estimative. A higher error gives a higher variability in the final lesion segmentation
 
 - Gamma
 
-  - Define the outlier detection based on units of standard deviation in the T2-FLAIR gray matter voxel intensity distribution
+    - Define the outlier detection based on units of standard deviation in the T2-FLAIR gray matter voxel intensity distribution
 
 - White Matter Matching
 
-  - Set the local neighborhood searching for label refinement step. This metric defines the percentage of white matter tissue that surrounds the hyperintense lesions. Large values defines a conservative segmentation, i.e. in order to define a true MS lesion, it must be close to certain percentage of white matter area.
+    - Set the local neighborhood searching for label refinement step. This metric defines the percentage of white matter tissue that surrounds the hyperintense lesions. Large values defines a conservative segmentation, i.e. in order to define a true MS lesion, it must be close to certain percentage of white matter area.
 
 - Minimum Lesion Size
 
-  - Set the minimum lesion size adopted as a true lesion in the final lesion map. Units are given in number of voxels
+    - Set the minimum lesion size adopted as a true lesion in the final lesion map. Units are given in number of voxels
 
 - Gray Matter Mask Value
 
-  - Set the mask value that represents the gray matter. Default is defined based on the (Basic Brain Tissues module) output
+    - Set the mask value that represents the gray matter. Default is defined based on the (Basic Brain Tissues module) output
 
 - White Matter Mask Value
 
-  - Set the mask value that represents the white matter. Default is defined based on the (Basic Brain Tissues module) output
+    - Set the mask value that represents the white matter. Default is defined based on the (Basic Brain Tissues module) output
 
 ![Input T2-FLAIR image with Multiple Sclerosis lesions](assets/T2FLAIR_patient_AFT.png){ width="600" .center}
 
