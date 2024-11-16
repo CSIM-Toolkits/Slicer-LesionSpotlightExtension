@@ -1,0 +1,25 @@
+site_name: Slicer-LesionSpotlightExtension
+repo_url: https://github.com/CSIM-Toolkits/Slicer-LesionSpotlightExtension
+repo_name: Toolkits/Slicer-LesionSpotlightExtension
+edit_uri: tree/main/docs
+
+theme:
+  name: readthedocs
+  language: en
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+
+nav:
+  - 'index.md'
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [SlicerDiffusionComplexityMap]
