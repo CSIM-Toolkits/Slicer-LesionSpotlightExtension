@@ -20,7 +20,7 @@ It provides the following modules:
 
 # Documentation
 
-[3D Slicer wiki - Lesion Spotlight](http://slicer.org/slicerWiki/index.php/Documentation/Nightly/Extensions/LesionSpotlight)
+To check all the parameters and information about this Slicer extension, plase access the [documentation page](https://lesionspotlightextension.readthedocs.io/en/latest/)
 
 # Contact
 

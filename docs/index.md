@@ -1,6 +1,6 @@
 # Lesion Spotlight
 
-![project logo](assets/LesionSpotlight.png){ width="250" .center}
+![project logo](assets/LesionSpotlight.png){ width="150" .center}
 
 Welcome to the Lesion Spotlight Slicer Extension!
 
@@ -28,12 +28,10 @@ This extension provides image segmentation and local image contrast enhancement 
 Most frequently used for these scenarios:
 
 - **Use Case 1:** Hyperintense Multiple Sclerosis (MS) lesions segmentation
-  
-  * T2-FLAIR images are usually applied to MS diagnosis in order to detect hyperintense MS lesions. In this case, the `LS Segmenter` module can be useful.
+  - T2-FLAIR images are usually applied to MS diagnosis in order to detect hyperintense MS lesions. In this case, the `LS Segmenter` module can be useful.
 
 - **Use Case 2:** Increase contrast in abnormal voxels in white matter tissue
-
-  * There are some lesion segmentation approaches that rely on the voxel intensity level presented in the white matter tissue, where the `LS Contrast Enhancer` module can be helpful to increase the contrast between lesions and surrounding brain tissues (mainly normal-appearing white matter - NAWM).
+  - There are some lesion segmentation approaches that rely on the voxel intensity level presented in the white matter tissue, where the `LS Contrast Enhancer` module can be helpful to increase the contrast between lesions and surrounding brain tissues (mainly normal-appearing white matter - NAWM).
 
 
 ![MS lesions and White Matter 3D representation](assets/Lesion3DRender.png)
@@ -44,7 +42,7 @@ MS lesions and White Matter 3D representation
 
 ### LS Segmenter
 
-![logo-ls-segmenter](../LSSegmenter/Resources/Icons/LSSegmenter.png)
+![logo-ls-segmenter](assets/LSSegmenter.png)
 
 This module offers a hybrid algorithm based on the iterative contrast enhancement (ICE) and logistic classification methods for hyperintense Multiple Sclerosis lesion segmentation task.
 
@@ -96,17 +94,17 @@ This module offers a hybrid algorithm based on the iterative contrast enhancemen
 - White Matter Mask Value
   - Set the mask value that represents the white matter. Default is defined based on the (Basic Brain Tissues module) output
 
-![T2-FLAIR image from a MS patient](assets/T2FLAIR_patient.png){ width="300" .center}
+![T2-FLAIR image from a MS patient](assets/T2FLAIR_patient.png){ width="600" .center}
 
 T2-FLAIR image from a MS patient
 
-![T2-FLAIR hyperintense lesion segmentation provided by the LS Segmenter module](assets/T2FLAIR_patient_lesionLabel.png){ width="300" .center}
+![T2-FLAIR hyperintense lesion segmentation provided by the LS Segmenter module](assets/T2FLAIR_patient_lesionLabel.png){ width="600" .center}
 
 T2-FLAIR hyperintense lesion segmentation provided by the `LS Segmenter` module
 
 ### LS Contrast Enhancer
 
-![logo-ls-contrast-enhancer](../LSContrastEnhancer/Resources/Icons/LSContrastEnhancer.png)
+![logo-ls-contrast-enhancer](assets/LSContrastEnhancer.png)
 
 #### Painel and Parameters
 
@@ -149,11 +147,11 @@ T2-FLAIR hyperintense lesion segmentation provided by the `LS Segmenter` module
 - Label Map Threshold
   - Threshold for the lesion label map
 
-![T2-FLAIR image with original lesion contrast](assets/T2FLAIR_beforeContrast.png){ width="300" .center}
+![T2-FLAIR image with original lesion contrast](assets/T2FLAIR_beforeContrast.png){ width="600" .center}
 
 T2-FLAIR image with original lesion contrast
 
-![T2-FLAIR image with hyperintense MS lesion contrast enhanced by the LS Contrast Enhancer module](assets/T2FLAIR_afterContrast.png){ width="300" .center}
+![T2-FLAIR image with hyperintense MS lesion contrast enhanced by the LS Contrast Enhancer module](assets/T2FLAIR_afterContrast.png){ width="600" .center}
 
 T2-FLAIR image with hyperintense MS lesion contrast enhanced by the LS Contrast Enhancer module
 
@@ -189,11 +187,11 @@ This module offers an implementation of a recent Multiple Sclerosis lesion segme
 - White Matter Mask Value
   - Set the mask value that represents the white matter. Default is defined based on the (Basic Brain Tissues module) output
 
-![Input T2-FLAIR image with Multiple Sclerosis lesions](assets/T2FLAIR_patient_AFT.png){ width="300" .center}
+![Input T2-FLAIR image with Multiple Sclerosis lesions](assets/T2FLAIR_patient_AFT.png){ width="600" .center}
 
 Input T2-FLAIR image with Multiple Sclerosis lesions
 
-![Lesion map resulted from AFT Segmenter module](assets/T2FLAIR_patient_lesionLabel_AFT.png){ width="300" .center}
+![Lesion map resulted from AFT Segmenter module](assets/T2FLAIR_patient_lesionLabel_AFT.png){ width="600" .center}
 
 Lesion map resulted from AFT Segmenter module
 
