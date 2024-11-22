@@ -4,7 +4,7 @@ project(LesionSpotlight)
 
 #-----------------------------------------------------------------------------
 # Extension meta-information
-set(EXTENSION_HOMEPAGE "http://slicer.org/slicerWiki/index.php/Documentation/Nightly/Extensions/LesionSpotlight")
+set(EXTENSION_HOMEPAGE "https://lesionspotlightextension.readthedocs.io/en/latest/")
 set(EXTENSION_CATEGORY "Segmentation")
 set(EXTENSION_DEPENDS AnomalousFiltersExtension)
 set(EXTENSION_CONTRIBUTORS "Antonio Carlos da Silva Senra Filho (University of Sao Paulo), Luiz Otavio Murta Junior (University of Sao Paulo)")
